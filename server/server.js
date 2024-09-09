@@ -45,4 +45,4 @@ let httpServer = http.createServer(app);
 
 httpServer.listen(process.env.PORT, () => { console.log(`Env: ${process.env.env} escuchando en puerto:`, process.env.PORT) });
 
-module.exports = app
+module.exports = app;
