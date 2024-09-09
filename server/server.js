@@ -47,7 +47,3 @@ httpServer.listen(process.env.PORT, () => { console.log(`Env: ${process.env.env}
 
 module.exports = app
 
-
-//1d51b7132012efe8e8b8eb033e3af87b auth token
-
-// AC8f670c661e43bef0b4f66cf370f1fc06 Account SID
