@@ -28,14 +28,21 @@ app.get('/sync',async function(req, res) {
     res.status(200).json(resp);}
 );
 
-// cron.schedule('0 10 */1 * * *', async function(){
-cron.schedule('0 26 1-23 * * *', async () => {
+app.get('/send',async function(req, res) {
+    console.log('entro send')
+    let resp = await send.send_marcajes();
+    console.log(resp)
+    res.status(200).json(resp);}
+);
+
+// cron.schedule('0 39 */1 * * *', async function(){
+cron.schedule('0 30 5-20 * * *', async () => {
     console.log('entro sync')
     let data = await sync.sync()
     console.log(data)
 });
 
-cron.schedule('0 5 1 * * *', async () => {
+cron.schedule('0 30 1 * * *', async () => {
     console.log('entro send')
     let data = await send.send_marcajes();
     console.log(data)

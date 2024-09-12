@@ -16,7 +16,18 @@ async function send_to_sap(body){
         SELECT e.registration_number as pernr,b.idate as ldate,MIN(itime) AS itime_1,MAX(itime) AS itime_2,
         700 as terid FROM bafar_promotoria as b inner join hr_employee e on b.pernr=e.id 
         where estatus_envio is null and b.company_id = (select id from res_company where name ='${oficina}' limit 1) 
-        and idate = '${dates}' GROUP BY e.registration_number,idate ORDER BY registration_number`;
+        and idate = '${dates}' and e.registration_number <>'99999999' 
+        GROUP BY e.registration_number,idate ORDER BY registration_number`;
+
+        // query = `
+        // SELECT e.registration_number as pernr,b.idate as ldate,MIN(itime) AS itime_1,MAX(itime) AS itime_2,
+        // 700 as terid FROM bafar_promotoria as b inner join hr_employee e on b.pernr=e.id 
+        // where estatus_envio is null and b.company_id = 18
+        // and idate = '22/08/2024' and e.registration_number <>'99999999'
+        // GROUP BY e.registration_number,idate ORDER BY registration_number`;
+        // console.log(query)
+
+
         mov = await con.excecute(query);
         mov = mov.rows
 

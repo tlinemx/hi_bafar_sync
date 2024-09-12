@@ -135,7 +135,6 @@ async function carga_asig_tienda() {
         query ="TRUNCATE TABLE temp_bafar_employee_stores"
         await con.excecute(query);
         resp = await request.fetch(url, data);
-
         for(item of resp.result.IT_ASIG_TDA){
             if(item.LUNES == '')item.LUNES = 0
             if(item.MARTES == '')item.MARTES = 0

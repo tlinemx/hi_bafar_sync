@@ -19,6 +19,10 @@ async function send_marcajes() {
             oficinas = await con.excecute(q);
             oficinas = oficinas.rows;
 
+            // oficinas =[{
+            //     name:"DPC Monterrey"
+            // }]
+
             for (oficina of oficinas){
                 console.log([{ "date":fullyear , "oficina":oficina.name}]);
                 resp = await ma.send_to_sap([{ "date":fullyear , "oficina":oficina.name}]);
